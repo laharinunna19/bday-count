@@ -1,0 +1,320 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --lavender: #c8a2ff;
+    --light-lavender: #eadcff;
+    --purple: #7b4bb7;
+    --deep-purple: #4b2675;
+    --dark: #241832;
+    --white: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: var(--dark);
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #f7f0ff,
+        #e9dcff,
+        #d7c0ff,
+        #f5edff
+    );
+}
+
+/* Background */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+}
+
+.glow1 {
+    width: 350px;
+    height: 350px;
+    background: #c59aff;
+    top: -120px;
+    left: -100px;
+}
+
+.glow2 {
+    width: 400px;
+    height: 400px;
+    background: #e0bfff;
+    bottom: -150px;
+    right: -100px;
+}
+
+.glow3 {
+    width: 250px;
+    height: 250px;
+    background: #b98aff;
+    top: 40%;
+    left: 45%;
+}
+
+/* Main */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+/* Text */
+
+.eyebrow {
+    color: var(--purple);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(65px, 12vw, 130px);
+    line-height: 0.75;
+    font-weight: normal;
+    color: var(--deep-purple);
+}
+
+h1 span {
+    display: block;
+    font-style: italic;
+    color: var(--purple);
+}
+
+.intro {
+    margin-top: 40px;
+    color: #745d8d;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.divider {
+    width: 70px;
+    height: 2px;
+    background: var(--lavender);
+    margin: 25px 0;
+}
+
+.countdown-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #80689c;
+    margin-bottom: 20px;
+}
+
+/* Countdown */
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.time-card {
+    min-width: 100px;
+    padding: 18px 10px;
+    border: 1px solid rgba(123, 75, 183, 0.2);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(91, 53, 130, 0.08);
+}
+
+.time-card div {
+    font-family: Georgia, serif;
+    font-size: 52px;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+.time-card span {
+    display: block;
+    margin-top: 5px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8c76a5;
+}
+
+.separator {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    color: var(--purple);
+    margin-bottom: 20px;
+}
+
+.birthday-date {
+    margin-top: 28px;
+    color: var(--deep-purple);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 6px;
+}
+
+.waiting {
+    margin-top: 40px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #806b92;
+    font-size: 17px;
+}
+
+/* Birthday screen */
+
+.birthday {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #eadcff,
+            #c8a2ff,
+            #8c5bc7
+        );
+
+    z-index: 100;
+}
+
+.birthday.show {
+    display: flex;
+    animation: appear 1s ease;
+}
+
+.birthday > p:first-of-type {
+    color: #5b3189;
+    font-size: 11px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.birthday h2 {
+    margin-top: 20px;
+    font-family: Georgia, serif;
+    font-size: clamp(50px, 10vw, 110px);
+    line-height: 0.85;
+    font-weight: normal;
+    color: #452168;
+}
+
+.birthday h2 span {
+    display: block;
+    color: #ffffff;
+    font-style: italic;
+}
+
+.sparkle {
+    font-size: 55px;
+    animation: float 1.5s infinite alternate;
+}
+
+.cake {
+    font-size: 60px;
+    margin-top: 30px;
+}
+
+.wish {
+    margin-top: 25px;
+    max-width: 500px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #4f3370;
+}
+
+/* Animations */
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .countdown {
+        gap: 4px;
+    }
+
+    .time-card {
+        min-width: 67px;
+        padding: 14px 5px;
+        border-radius: 13px;
+    }
+
+    .time-card div {
+        font-size: 35px;
+    }
+
+    .time-card span {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .separator {
+        font-size: 25px;
+        margin-bottom: 18px;
+    }
+
+    .birthday-date {
+        letter-spacing: 3px;
+    }
+
+    .waiting {
+        font-size: 15px;
+    }
+}
+```
